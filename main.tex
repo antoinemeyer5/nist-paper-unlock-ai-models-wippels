@@ -12,7 +12,7 @@
 
 % It is strongly recommended to use hyperref, especially for the review version.
 % hyperref with option pagebackref eases the reviewers' job.
-% Please disable hyperref *only* if you encounter grave issues, 
+% Please disable hyperref *only* if you encounter grave issues,
 % e.g. with the file validation for the camera-ready version.
 %
 % If you comment hyperref and then uncomment it, you should delete *.aux before re-running LaTeX.
@@ -26,38 +26,41 @@
 \def\confYear{2025}
 
 %%%%%%%%% TITLE - PLEASE UPDATE
-\title{\LaTeX\ Author Guidelines for \confName~Proceedings}
+\title{Unlock and Compare the most Accurate Publicly Available AI Models for your Tasks}
 
 %%%%%%%%% AUTHORS - PLEASE UPDATE
-\author{First Author\\
-Institution1\\
-Institution1 address\\
-{\tt\small firstauthor@i1.org}
+\author{Antoine Meyer\\
+National Institute of Standards and Technology\\
+100 Bureau Dr, Gaithersburg, MD 20899\\
+{\tt\small https://orcid.org/0009-0007-5693-5760}
 % For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
 % Additional authors and addresses can be added with ``\and'',
 % just like the second author.
 % To save space, use either the email address or home page, not both
 \and
-Second Author\\
-Institution2\\
-First line of institution2 address\\
-{\tt\small secondauthor@i2.org}
+Mylene Simon\\
+{\tt\small mylene.simon@nist.gov}
+\and
+Peter Bajcsy
+{\tt\small peter.bajcsy@nist.gov}
+{\tt\small https://orcid.org/0000-0002-6968-2615}
 }
 
 \begin{document}
 \maketitle
-\input{sec/0_abstract}    
+\input{sec/0_abstract}
 \input{sec/1_intro}
-\input{sec/2_formatting}
-\input{sec/3_finalcopy}
+\input{sec/2_methods}
+\input{sec/3_results}
+\input{sec/4_discussion}
 {
     \small
     \bibliographystyle{ieeenat_fullname}
     \bibliography{main}
 }
 
-% WARNING: do not forget to delete the supplementary pages from your submission 
+% WARNING: do not forget to delete the supplementary pages from your submission
 % \input{sec/X_suppl}
 
 \end{document}
