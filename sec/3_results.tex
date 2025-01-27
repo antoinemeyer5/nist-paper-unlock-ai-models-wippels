@@ -1,43 +1,67 @@
 \section{Results}
 \label{sec:results}
 
-Access new repositories give access to nearly 4,000 models from Hugging Face
-\TODO\ [ADD SAM2, ADD CELLPOSE] and more than 50 models from BioImage.IO. It
-also saves hours of computational time and resources, as well as improves
-reusability of pre-trained AI models.
+Access new repositories give access to a lot of new models usable in Web Image
+Processing Pipeline (WIPP). It also saves hours of computational time and
+resources, as well as improves reusability of pre-trained AI models.
 
-The level of documentation varies greatly from model to model. We have set up an
-automatic documentation system for models trained within Web Image Processing
-Pipeline (WIPP).
-
-To avoid lower confidence in external models, we have developed a way of
-evaluating the results and therefore the relevance of the models tested, in
-order to select and retain only those that deliver the best results.
-
-\TODO\
-
-\TODO\
-
-\TODO\
-
-\TODO\
+In the context of Image Analysis in WIPP, we are looking to use Mask
+Generation Models.
 
 \begin{table}[H]
 \centering
-\caption{\label{tab:example}%
-  Results.
-  Ours is better.
+\caption{\label{tab:number_of_newly_available_models}%
+  Number of newly available Mask Generation models
 }
-\begin{tabular}{lc}
+\begin{tabular}{cc}
   \toprule
-  Method & Frobnability \\
+  Repository & Mask Generation Model(s) \\
   \midrule
-  Theirs & Frumpy \\
-  Yours & Frobbly \\
-  Ours & Makes one's heart Frob\\
+  WIPP & 1 \\
+  Hugging Face & 176 \\
+  BioImage.IO & 32 \\
+  Cellpose & 21 \\
+  SAM2 & 8 \\
   \bottomrule
 \end{tabular}
 \end{table}
 
+The level of documentation varies greatly from model to model. We have set up an
+automatic documentation system for models trained within WIPP.
 
+Finally to avoid lower confidence in external models, we have developed a way of
+evaluating the results and therefore the relevance of the models tested, in
+order to select and retain only those that deliver the best results.
 
+\begin{table}[H]
+\tiny
+\centering
+\caption{\label{tab:comparative_results_for_different_models}%
+  Comparative results for different models
+}
+\begin{tabular}{lccc}
+  \toprule
+  Repository & Model Name & Execution Time per image (s) & Accuracy (\%) \\
+  \midrule
+  WIPP & WIPP UNet CNN & \TODO\ 00.00 & $\SI{00.00}{\percent} \pm \SI{0.00}{\percent}$ \\
+  Hugging Face & facebook/sam-vit-huge & \TODO\ & \TODO\ \\
+  Hugging Face & Zigeng/SlimSAM-uniform-50 & \TODO\ & \TODO\ \\
+  Hugging Face & jadechoghari/robustsam-vit-large & \TODO\ & \TODO\ \\
+  BioImage.IO & 10.5281/zenodo.5869899 & \TODO\ & \TODO\ \\
+  BioImage.IO & 10.5281/zenodo.5764892 & \TODO\ & \TODO\ \\
+  Cellpose & cyto3 & \TODO\ & \TODO\ \\
+  Cellpose & nuclei & \TODO\ & \TODO\ \\
+  SAM2 & facebook/sam2.1-hiera-large & \TODO\ & \TODO\ \\
+  SAM2 & facebook/sam2-hiera-small & \TODO\ & \TODO\ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+The date used were \TODO\ \TODO\ \TODO\ \TODO\ \TODO\
+
+The computer used was (Nvidia Quatro RTX 4000)  \TODO\ \TODO\ \TODO\ \TODO\ \TODO\
+
+Even if the results may not be perfect, this method allows you to quickly try
+out a new model at reduced cost. We can then take a promising model and improve
+it by finetuning it. We hope to improve the speed of data analysis within WIPP
+and enable better overall results.
