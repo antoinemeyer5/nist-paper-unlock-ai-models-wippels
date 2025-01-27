@@ -1,4 +1,84 @@
 \section{Discussion}
 \label{sec:discussion}
 
+There are public models that work really well on your data. Using them is
+important because they advance science and save energy, money and time.
+
+Documentation is also very important. Creating standard for AI model cards could
+be great for the community. This will help users and people who wants to use AI
+models but which are not specialties. In WIPP we have made decision by
+synthesizing the main AI Model Cards already on the market.
+
 \TODO\
+
+\def\firstellip{(1.6, 0) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
+\def\secondellip{(0.3, 1cm) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
+\def\thirdellip{(-1.6, 0) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=-50]}
+\def\fourthellip{(-0.3, 1cm) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=-50]}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+    \filldraw[fill=red,opacity=0.1] \firstellip;
+    \filldraw[fill=blue,opacity=0.1] \secondellip;
+    \filldraw[fill=green,opacity=0.1] \thirdellip;
+    \filldraw[fill=yellow,opacity=0.1] \fourthellip;
+
+    % TODO - TO FINISH
+
+    \draw \firstellip node [label={[xshift=1.6cm, yshift=2.1cm] \tiny $TensorFlow$}] {};
+
+    \draw \secondellip node [label={[xshift=1.5cm, yshift=2.1cm] \tiny $BioImage.IO$}] {};
+    \draw node [label={[xshift=1.2cm, yshift=2.1cm] \tiny 53 fields}] {};
+
+    \draw \thirdellip node [label={[xshift=-1.6cm, yshift=2.1cm] \tiny $Hugging Face$}] {};
+
+    \draw \fourthellip node [label={[xshift=-1.5cm, yshift=2.1cm] \tiny $Google Paper$}] {};
+    \draw node [label={[xshift=-1.2cm, yshift=2.1cm] \tiny 30 fields}] {};
+
+\end{tikzpicture}
+\caption{Common field of different AI Model Cards} \label{fig:venn}
+\end{figure}
+
+This give us 8 fields that we want to keep to be as compatible as possible with
+external tools. At the end we proposed this AI model card:
+
+\TODO\
+
+Code to display JAVA class with AI model cards labels.
+
+\TODO\
+
+This proposal is not perfect and needs refinering. The creation of a standard
+would be a great opportunity for all the AI actors to think about what they
+need.
+
+There is no standard for the documentation and no standard for the usage.
+Different technologies, with different repositories, with different goals make
+everything complicated. For this reason it could be great to develop a standard
+way to access AI models. This will allow to use more models from more different
+repositories to give access to more people. For this paper we have tried to use
+some repositories like below.
+
+\begin{table}[H]
+    \centering
+    \caption{\label{tab:discussion}%
+        \TODO\
+    }
+    \begin{tabular}{lcccc}
+      \toprule
+      Repository & Total Models & Details \\
+      \midrule
+      PyTorch Hub & +50 & \TODO\ \\
+      Dinov2 & +10 & \TODO\ \\
+      Hailo.AI & ? & \TODO\ \\
+      ModelZoo & ? & \TODO\ \\
+      MicroSAM & +10 & \TODO\ \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+The lack of documentation, of API or of models available made it impossible to
+use these repositories in WIPP. We hope to be able to integrate them into our
+tool in the future.
