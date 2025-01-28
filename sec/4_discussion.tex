@@ -27,7 +27,7 @@ synthesizing the main AI Model Cards already on the market.
 
     % TensorFlow (TF)
     \draw \firstellip node [label={[xshift=1.6cm, yshift=2.1cm] \tiny $TensorFlow$}] {};
-    \draw node [label={[xshift=2.9cm, yshift=1.1cm] \tiny 26 fields}] {};
+    \draw node [label={[xshift=2.9cm, yshift=0.7cm] \tiny 26 fields}] {};
 
     % BioImage.IO (BI.IO)
     \draw \secondellip node [label={[xshift=1.5cm, yshift=2.1cm] \tiny $BioImage.IO$}] {};
@@ -35,15 +35,20 @@ synthesizing the main AI Model Cards already on the market.
 
     % Hugging Face (HF)
     \draw \thirdellip node [label={[xshift=-1.6cm, yshift=2.1cm] \tiny $Hugging Face$}] {};
-    \draw node [label={[xshift=-2.9cm, yshift=1.1cm] \tiny 43 fields}] {};
+    \draw node [label={[xshift=-2.9cm, yshift=0.7cm] \tiny 43 fields}] {};
 
     % Google Paper (GP)
     \draw \fourthellip node [label={[xshift=-1.5cm, yshift=2.1cm] \tiny $Google Paper$}] {};
     \draw node [label={[xshift=-1.2cm, yshift=2.1cm] \tiny 30 fields}] {};
 
-    \draw node [label={[xshift=-1.7cm, yshift=1.2cm] \tiny 16 fields}] {}; % HG x GP
+    \draw node [label={[xshift=-1.7cm, yshift=1.2cm] \tiny 16 fields}] {}; % HF x GP
     \draw node [label={[xshift=1.7cm, yshift=1.2cm] \tiny 12 fields}] {}; % BI.IO x TF
+    \draw node [label={[xshift=0cm, yshift=-1.9cm] \tiny 15 fields}] {}; % HF x TF
 
+    \draw node [label={[xshift=-0.9cm, yshift=0.2cm] \tiny 10 fields}] {}; % BI.IO x HF x GP
+    \draw node [label={[xshift=0.9cm, yshift=0.2cm] \tiny 11 fields}] {}; % BI.IO x TF x GP
+
+    \draw node [label={[xshift=0cm, yshift=-0.9cm] \tiny 8 fields}] {}; % HF x GP x BI.IO x TF
 
 \end{tikzpicture}
 \caption{Common field of different AI Model Cards} \label{fig:venn}
