@@ -25,17 +25,25 @@ synthesizing the main AI Model Cards already on the market.
     \filldraw[fill=green,opacity=0.1] \thirdellip;
     \filldraw[fill=yellow,opacity=0.1] \fourthellip;
 
-    % TODO - TO FINISH
-
+    % TensorFlow (TF)
     \draw \firstellip node [label={[xshift=1.6cm, yshift=2.1cm] \tiny $TensorFlow$}] {};
+    \draw node [label={[xshift=2.9cm, yshift=1.1cm] \tiny 26 fields}] {};
 
+    % BioImage.IO (BI.IO)
     \draw \secondellip node [label={[xshift=1.5cm, yshift=2.1cm] \tiny $BioImage.IO$}] {};
     \draw node [label={[xshift=1.2cm, yshift=2.1cm] \tiny 53 fields}] {};
 
+    % Hugging Face (HF)
     \draw \thirdellip node [label={[xshift=-1.6cm, yshift=2.1cm] \tiny $Hugging Face$}] {};
+    \draw node [label={[xshift=-2.9cm, yshift=1.1cm] \tiny 43 fields}] {};
 
+    % Google Paper (GP)
     \draw \fourthellip node [label={[xshift=-1.5cm, yshift=2.1cm] \tiny $Google Paper$}] {};
     \draw node [label={[xshift=-1.2cm, yshift=2.1cm] \tiny 30 fields}] {};
+
+    \draw node [label={[xshift=-1.7cm, yshift=1.2cm] \tiny 16 fields}] {}; % HG x GP
+    \draw node [label={[xshift=1.7cm, yshift=1.2cm] \tiny 12 fields}] {}; % BI.IO x TF
+
 
 \end{tikzpicture}
 \caption{Common field of different AI Model Cards} \label{fig:venn}
@@ -83,17 +91,17 @@ some repositories like below.
 \begin{table}[H]
     \centering
     \caption{\label{tab:discussion}%
-        \TODO\
+        Repositories not selected for this work
     }
     \begin{tabular}{lcccc}
       \toprule
-      Repository & Total Models & Details \\
+      Repository & Mask Generation Model(s) \\
       \midrule
-      PyTorch Hub & +50 & \TODO\ \\
-      Dinov2 & +10 & \TODO\ \\
-      Hailo.AI & ? & \TODO\ \\
-      ModelZoo & ? & \TODO\ \\
-      MicroSAM & +10 & \TODO\ \\
+      PyTorch Hub & +50 \\
+      Dinov2 & +10 \\
+      Hailo.AI & 1 \\
+      ModelZoo & 2 \\
+      MicroSAM & +10 \\
       \bottomrule
     \end{tabular}
 \end{table}
