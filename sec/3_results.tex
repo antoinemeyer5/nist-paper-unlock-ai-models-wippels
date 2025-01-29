@@ -39,24 +39,21 @@ Masks used are here
 https://wipp-dev.nist.gov/images-collection/671abb516103440e64a77397 and images
 used are here
 /mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
-The WIPP server specifications are \TODO\
+Therer are 162 images. The WIPP server specifications are \TODO\
 
 \begin{table}[H]
 \tiny
 \centering
-\caption{\label{tab:comparative_results_for_different_models}%
-  Comparative models results run in WIPP
-}
 \begin{tabular}{llcc}
   \toprule
   Repository & Model Name & Inference Time per Image (s) & Accuracy (\%) \\
   \midrule
   WIPP & WIPP UNet CNN 1.0.0 & \TODO\ &  \\
   Hugging Face & facebook/sam-vit-huge & 7.04 & $\SI{40.62}{\percent} \pm \SI{34.99}{\percent}$ \\
-               & Zigeng/SlimSAM-uniform-50 & 939s/162 images = 5.79 & $\SI{25.05}{\percent} \pm \SI{22.02}{\percent}$ \\
+               & Zigeng/SlimSAM-uniform-50 & 5.79 & $\SI{25.05}{\percent} \pm \SI{22.02}{\percent}$ \\
                & jadechoghari/robustsam-vit-large & 6.76 & $\SI{38.19}{\percent} \pm \SI{35.67}{\percent}$ \\
-  BioImage.IO & 10.5281/zenodo.5869899 & ISSUE WITH DOCKER &  \\
-              & 10.5281/zenodo.5764892 &  &  \\
+  BioImage.IO & 10.5281/zenodo.5869899 & Issue with Docker & Need help \\
+              & 10.5281/zenodo.5764892 & Same reason & / \\
   Cellpose & cyto3 & \TODO\ &  \\
            & nuclei & \TODO\ &  \\
   SAM2 & facebook/sam2.1-hiera-large & 2.12 & $\SI{38.16}{\percent} \pm \SI{35.02}{\percent}$ \\
@@ -65,38 +62,17 @@ The WIPP server specifications are \TODO\
 \end{tabular}
 \end{table}
 
-\subsection{Local compute with 3D-RPE data}
-
-Data used are the same from above. The local computer specifications are one GPU
-Quadro RTX 4000 with CUDA version 12.7 and Memory 8192 MiB.
-
-\begin{table}[H]
-\tiny
-\centering
-\caption{\label{tab:comparative_results_for_different_models}%
-Comparative models results run in local
-}
-\begin{tabular}{llcc}
-  \toprule
-  Repository & Model Name & Inference Time per Image (s) & Accuracy (\%) \\
-  \midrule
-  Hugging Face & facebook/sam-vit-huge & \TODO\ &  \\
-               & Zigeng/SlimSAM-uniform-50 & \TODO\ &  \\
-               & jadechoghari/robustsam-vit-large & \TODO\  &  \\
-  BioImage.IO & 10.5281/zenodo.5869899 & \TODO\ &  \\
-              & 10.5281/zenodo.5764892 & \TODO\  &  \\
-  Cellpose & cyto3 & \TODO\ &  \\
-           & nuclei & \TODO\  &  \\
-  \bottomrule
-\end{tabular}
-\end{table}
+\TODO\ Bad results because 3D data with 2D models so a lot of allusionations or
+detect things that should not be detected. But otherwise, on certain images,
+results are great!! Do we have to select specific data?
 
 \subsection{Local compute with RPEimplants data}
 
 Data used are from this link https://isg.nist.gov/deepzoomweb/data/RPEimplants.
 They contains images of 2D Measurement of Retinal Pigment Epithelium Function
-Using Quantitative Bright-Field Microscopy. Local computer specifications are
-the same as above.
+Using Quantitative Bright-Field Microscopy. There are 1032 images but for this
+results we compute on only 210 images. The local computer specifications are one
+GPU Quadro RTX 4000 with CUDA version 12.7 and Memory 8192 MiB.
 
 \begin{table}[H]
 \tiny
@@ -107,11 +83,11 @@ the same as above.
   \midrule
   Hugging Face & facebook/sam-vit-huge & 4.16 & $\SI{85.87}{\percent} \pm \SI{3.98}{\percent}$ \\
                 & Zigeng/SlimSAM-uniform-50 & 2.81 & $\SI{79.78}{\percent} \pm \SI{5.31}{\percent}$ \\
-                & jadechoghari/robustsam-vit-large & \TODO\ &  \\
+                & jadechoghari/robustsam-vit-large & 3.57 & $\SI{83.08}{\percent} \pm \SI{3.34}{\percent}$ \\
   BioImage.IO & 10.5281/zenodo.5869899 & 0.31 & $\SI{89.30}{\percent} \pm \SI{0.84}{\percent}$ \\
               & 10.5281/zenodo.5764892 & 0.38 & $\SI{10.44}{\percent} \pm \SI{3.20}{\percent}$ \\
-  Cellpose & cyto3 & \TODO\ &  \\
-            & nuclei & \TODO\  &  \\
+  Cellpose & cyto3 & Unqualified (M.G. model) & with segme. mask data.  \\
+            & nuclei & Same reason & / \\
   \bottomrule
 \end{tabular}
 \end{table}
