@@ -5,13 +5,13 @@ Access new repositories give access to a lot of new models usable in Web Image
 Processing Pipeline (WIPP). It also saves hours of computational time and
 resources, as well as improves reusability of pre-trained AI models.
 
-In the context of Image Analysis in WIPP, we are looking to use Mask
-Generation Models.
+In the context of Image Analysis in WIPP, we are looking to use segmentation
+mask models.
 
 \begin{table}[H]
 \centering
 \caption{\label{tab:number_of_newly_available_models}%
-  Number of newly available Mask Generation models
+  Number of newly available image segmentation mask models thanks to Inference Plugin
 }
 \begin{tabular}{lc}
   \toprule
@@ -33,38 +33,126 @@ Finally to avoid lower confidence in external models, we have developed a way of
 evaluating the results and therefore the relevance of the models tested, in
 order to select and retain only those that deliver the best results.
 
-\subsection{WIPP compute with 3D-RPE data}
+We have selected 10 models from previous repositories.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+  \toprule
+  Repository & Model Name & ID \\
+  \midrule
+  WIPP & WIPP UNet CNN 1.0.0 & W1 \\
+  Hugging Face & facebook/sam-vit-huge & H1 \\
+                & Zigeng/SlimSAM-uniform-50 & H2 \\
+                & jadechoghari/robustsam-vit-large & H3 \\
+  BioImage.IO & 10.5281/zenodo.5869899 & B1 \\
+              & 10.5281/zenodo.5764892 & B2 \\
+  Cellpose & cyto3 & C1 \\
+            & nuclei & C2 \\
+  SAM2 & facebook/sam2.1-hiera-large & S1 \\
+        & facebook/sam2-hiera-small & S2 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dataset 3D-RPE data week 1}
 
 Masks used are here
 https://wipp-dev.nist.gov/images-collection/671abb516103440e64a77397 and images
 used are here
 /mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
-Therer are 162 images. The WIPP server specifications are \TODO\
+There are 162 images. The WIPP server specifications are \TODO\
 
 \begin{table}[H]
-\tiny
 \centering
-\begin{tabular}{llcc}
+\caption{\label{tab:base3dRPEdatamask}%
+  Compute time per image (s) and accuracy (\%) with 3D-RPE data week 1 masks as ground truth
+}
+\begin{tabular}{lll}
   \toprule
-  Repository & Model Name & Inference Time per Image (s) & Accuracy (\%) \\
+  ID & Time & Accuracy \\
   \midrule
-  WIPP & WIPP UNet CNN 1.0.0 & \TODO\ &  \\
-  Hugging Face & facebook/sam-vit-huge & 7.04 & $\SI{40.62}{\percent} \pm \SI{34.99}{\percent}$ \\
-               & Zigeng/SlimSAM-uniform-50 & 5.79 & $\SI{25.05}{\percent} \pm \SI{22.02}{\percent}$ \\
-               & jadechoghari/robustsam-vit-large & 6.76 & $\SI{38.19}{\percent} \pm \SI{35.67}{\percent}$ \\
-  BioImage.IO & 10.5281/zenodo.5869899 & Issue with Docker & Need help \\
-              & 10.5281/zenodo.5764892 & Same reason & / \\
-  Cellpose & cyto3 & \TODO\ &  \\
-           & nuclei & \TODO\ &  \\
-  SAM2 & facebook/sam2.1-hiera-large & 2.12 & $\SI{38.16}{\percent} \pm \SI{35.02}{\percent}$ \\
-       & facebook/sam2-hiera-small & \TODO\ &  \\
+  W1 & \TODO\ &  \\
+  H1 & 7.04 & $\SI{40.62}{\percent} \pm \SI{34.99}{\percent}$ \\
+  H2 & 5.79 & $\SI{25.05}{\percent} \pm \SI{22.02}{\percent}$ \\
+  H3 & 6.76 & $\SI{38.19}{\percent} \pm \SI{35.67}{\percent}$ \\
+  B1 & \TODO\ & \TODO\ \\
+  B2 & \TODO\ & \TODO\ \\
+  C1 & \TODO\ & \TODO\ \\
+  C2 & \TODO\ & \TODO\ \\
+  S1 & 2.12 & $\SI{38.16}{\percent} \pm \SI{35.02}{\percent}$ \\
+  S2 & \TODO\ &  \\
   \bottomrule
 \end{tabular}
 \end{table}
 
-\TODO\ Bad results because 3D data with 2D models so a lot of allusionations or
-detect things that should not be detected. But otherwise, on certain images,
-results are great!! Do we have to select specific data?
+\begin{table}[H]
+\centering
+\caption{\label{tab:baseW1}%
+  Compute time per image (s) and accuracy (\%) with W1 results as ground truth
+}
+\begin{tabular}{lll}
+  \toprule
+  ID & Time & Accuracy \\
+  \midrule
+  W1 & / & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
+  H1 & \TODO\ & \TODO\ \\
+  H2 & \TODO\ & \TODO\ \\
+  H3 & \TODO\ & \TODO\ \\
+  B1 & \TODO\ & \TODO\ \\
+  B2 & \TODO\ & \TODO\ \\
+  C1 & \TODO\ & \TODO\ \\
+  C2 & \TODO\ & \TODO\ \\
+  S1 & \TODO\ & \TODO\ \\
+  S2 & \TODO\ & \TODO\ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{\label{tab:baseW1}%
+  Compute time per image (s) and accuracy (\%) with H1 results as ground truth
+}
+\begin{tabular}{lll}
+  \toprule
+  ID & Time & Accuracy \\
+  \midrule
+  W1 & \TODO\ & \TODO\ \\
+  H1 & / & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
+  H2 & 5.79 & $\SI{78.60}{\percent} \pm \SI{17.41}{\percent}$ \\
+  H3 & 6.76 & $\SI{93.70}{\percent} \pm \SI{13.32}{\percent}$ \\
+  B1 & \TODO\ & \TODO\ \\
+  B2 & \TODO\ & \TODO\ \\
+  C1 & \TODO\ & \TODO\ \\
+  C2 & \TODO\ & \TODO\ \\
+  S1 & \TODO\ & \TODO\ \\
+  S2 & \TODO\ & \TODO\ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dataset 3D-RPE data week 3}
+
+\TODO\
+
+Pre process data w3
+
+Upload in WIPP
+
+ajm32@pn125927:/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/NEI\_RPE\_GoogleMap/Final\_stacks/TOM20/P1-W3-TOM
+
+\TODO\
+
+\TODO\
+
+\TODO\
+
+
+
+
+
+
 
 \subsection{Local compute with RPEimplants data}
 
@@ -75,24 +163,24 @@ results we compute on only 210 images. The local computer specifications are one
 GPU Quadro RTX 4000 with CUDA version 12.7 and Memory 8192 MiB.
 
 \begin{table}[H]
-\tiny
 \centering
-\begin{tabular}{llcc}
+\caption{\label{tab:baseMask}%
+  Compute time per image (s) and accuracy (\%) with given masks as ground truth
+}
+\begin{tabular}{lll}
   \toprule
-  Repository & Model Name & Inf. Time per Image (s) & Accuracy (\%) \\
+  ID & Time & Accuracy \\
   \midrule
-  Hugging Face & facebook/sam-vit-huge & 4.16 & $\SI{85.87}{\percent} \pm \SI{3.98}{\percent}$ \\
-                & Zigeng/SlimSAM-uniform-50 & 2.81 & $\SI{79.78}{\percent} \pm \SI{5.31}{\percent}$ \\
-                & jadechoghari/robustsam-vit-large & 3.57 & $\SI{83.08}{\percent} \pm \SI{3.34}{\percent}$ \\
-  BioImage.IO & 10.5281/zenodo.5869899 & 0.31 & $\SI{89.30}{\percent} \pm \SI{0.84}{\percent}$ \\
-              & 10.5281/zenodo.5764892 & 0.38 & $\SI{10.44}{\percent} \pm \SI{3.20}{\percent}$ \\
-  Cellpose & cyto3 & Unqualified (M.G. model) & with segme. mask data.  \\
-            & nuclei & Same reason & / \\
+  H1 & 4.16 & $\SI{85.87}{\percent} \pm \SI{3.98}{\percent}$ \\
+  H2 & 2.81 & $\SI{79.78}{\percent} \pm \SI{5.31}{\percent}$ \\
+  H3 & 3.57 & $\SI{83.08}{\percent} \pm \SI{3.34}{\percent}$ \\
+  B1 & 0.31 & $\SI{89.30}{\percent} \pm \SI{0.84}{\percent}$ \\
+  B2 & 0.38 & $\SI{10.44}{\percent} \pm \SI{3.20}{\percent}$ \\
   \bottomrule
 \end{tabular}
 \end{table}
 
----
+\subsection{Notes}
 
 Even if the results may not be perfect, this method allows you to quickly try
 out a new model at reduced cost. It is also easy to change dataset. We can then
