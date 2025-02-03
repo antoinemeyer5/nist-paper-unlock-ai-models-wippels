@@ -65,6 +65,8 @@ used are here
 /mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
 There are 162 images.
 
+Time is the compute time for inference + accuracy (= the all workflow).
+
 \begin{table}[H]
 \centering
 \caption{\label{tab:base3dRPEdatamask}%
@@ -88,25 +90,28 @@ There are 162 images.
 \end{tabular}
 \end{table}
 
+On the next tables, compute times per image are the same so I just remove
+it. The only difference is the ground truth data chosen.
+
 \begin{table}[H]
 \centering
 \caption{\label{tab:baseW1}%
-  Compute time per image (s) and accuracy (\%) with W1 results as ground truth
+  Accuracy (\%) with W1 results as ground truth
 }
-\begin{tabular}{lll}
+\begin{tabular}{ll}
   \toprule
-  ID & Time & Accuracy \\
+  ID & Accuracy \\
   \midrule
-  W1 & / & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
-  H1 & \TODO\ & \TODO\ \\
-  H2 & \TODO\ & \TODO\ \\
-  H3 & \TODO\ & \TODO\ \\
-  B1 & \TODO\ & \TODO\ \\
-  B2 & \TODO\ & \TODO\ \\
-  C1 & \TODO\ & \TODO\ \\
-  C2 & \TODO\ & \TODO\ \\
-  S1 & \TODO\ & \TODO\ \\
-  S2 & \TODO\ & \TODO\ \\
+  W1 & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
+  H1 & \TODO\ \\
+  H2 & \TODO\ \\
+  H3 & \TODO\ \\
+  B1 &  \TODO\ \\
+  B2 &  \TODO\ \\
+  C1 &  \TODO\ \\
+  C2 & \TODO\ \\
+  S1 &  \TODO\ \\
+  S2 & \TODO\ \\
   \bottomrule
 \end{tabular}
 \end{table}
@@ -114,29 +119,29 @@ There are 162 images.
 \begin{table}[H]
 \centering
 \caption{\label{tab:baseW1}%
-  Compute time per image (s) and accuracy (\%) with H1 results as ground truth
+  Accuracy (\%) with H1 results as ground truth
 }
-\begin{tabular}{lll}
+\begin{tabular}{ll}
   \toprule
-  ID & Time & Accuracy \\
+  ID & Accuracy \\
   \midrule
-  W1 & \TODO\ & \TODO\ \\
-  H1 & / & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
-  H2 & 5.79 & $\SI{78.60}{\percent} \pm \SI{17.41}{\percent}$ \\
-  H3 & 6.76 & $\SI{93.70}{\percent} \pm \SI{13.32}{\percent}$ \\
-  B1 & \TODO\ & \TODO\ \\
-  B2 & \TODO\ & \TODO\ \\
-  C1 & \TODO\ & \TODO\ \\
-  C2 & \TODO\ & \TODO\ \\
-  S1 & 2.12 & $\SI{93.37}{\percent} \pm \SI{12.52}{\percent}$ \\
-  S2 & \TODO\ & \TODO\ \\
+  W1 & \TODO\ \\
+  H1 & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
+  H2 & $\SI{78.60}{\percent} \pm \SI{17.41}{\percent}$ \\
+  H3 & $\SI{93.70}{\percent} \pm \SI{13.32}{\percent}$ \\
+  B1 & \TODO\ \\
+  B2 & \TODO\ \\
+  C1 & \TODO\ \\
+  C2 & \TODO\ \\
+  S1 & $\SI{93.37}{\percent} \pm \SI{12.52}{\percent}$ \\
+  S2 & \TODO\ \\
   \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Dataset 3D-RPE data week 3}
 
-Masks used are here \TODO\ and images used are here \TODO\. There are 162 images.
+Masks used are here \TODO\ and images used are here \TODO\ . There are 162 images.
 
 \begin{table}[H]
 \centering
@@ -148,14 +153,14 @@ Masks used are here \TODO\ and images used are here \TODO\. There are 162 images
   ID & Time & Accuracy \\
   \midrule
   W1 & \TODO\ & \TODO\ \\
-  H1 & \TODO\ & \TODO\ \\
-  H2 & \TODO\ & \TODO\ \\
-  H3 & \TODO\ & \TODO\ \\
+  H1 & 2.82 & $\SI{70.93}{\percent} \pm \SI{27.97}{\percent}$ \\
+  H2 & \TODO\ & $\SI{}{\percent} \pm \SI{}{\percent}$ \\
+  H3 & 2.56 & $\SI{73.15}{\percent} \pm \SI{27.31}{\percent}$ \\
   B1 & \TODO\ & \TODO\ \\
   B2 & \TODO\ & \TODO\ \\
   C1 & \TODO\ & \TODO\ \\
   C2 & \TODO\ & \TODO\ \\
-  S1 & \TODO\ & \TODO\ \\
+  S1 & 2.35 & $\SI{77.69}{\percent} \pm \SI{26.12}{\percent}$ \\
   S2 & \TODO\ & \TODO\ \\
   \bottomrule
 \end{tabular}
