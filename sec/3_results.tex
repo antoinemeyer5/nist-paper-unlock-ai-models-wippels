@@ -33,7 +33,7 @@ Finally to avoid lower confidence in external models, we have developed a way of
 evaluating the results and therefore the relevance of the models tested, in
 order to select and retain only those that deliver the best results.
 
-We have selected 10 models from previous repositories.
+We have selected 5 models, one from each previous repositories.
 
 \begin{table}[H]
 \centering
@@ -41,142 +41,93 @@ We have selected 10 models from previous repositories.
   \toprule
   Repository & Model Name & ID \\
   \midrule
-  WIPP & WIPP UNet CNN 1.0.0 & W1 \\
-  Hugging Face & facebook/sam-vit-huge & H1 \\
-                & Zigeng/SlimSAM-uniform-50 & H2 \\
-                & jadechoghari/robustsam-vit-large & H3 \\
-  BioImage.IO & 10.5281/zenodo.5869899 & B1 \\
-              & 10.5281/zenodo.5764892 & B2 \\
-  Cellpose & cyto3 & C1 \\
-            & nuclei & C2 \\
-  SAM2 & facebook/sam2.1-hiera-large & S1 \\
-        & facebook/sam2-hiera-small & S2 \\
+  WIPP & UNet CNN 1.0.0 & U \\
+  Hugging Face & Zigeng/SlimSAM-uniform-50 & H \\
+  BioImage.IO & 10.5281/zenodo.5869899 & B \\
+  Cellpose & cyto3 & C \\
+  SAM2 & facebook/sam2.1-hiera-large & S \\
   \bottomrule
 \end{tabular}
 \end{table}
 
-We compute everything in WIPP. The WIPP server specifications are \TODO\
+We compute everything in WIPP. The WIPP server specifications are:
+\begin{itemize}
+  \item CPU: AMD Ryzen 9 3950X 16-Core Processor with 16 cores and 2 threads
+  \item GPU: NVIDIA GeForce RTX 3090
+  \item 64G RAM
+\end{itemize}
 
-\subsection{Dataset 3D-RPE data week 1}
+We compute results on two different datasets: 3D-RPE Week 1 and 3D-RPE Week 3.
 
-Masks used are here
-https://wipp-dev.nist.gov/images-collection/671abb516103440e64a77397 and images
-used are here
-/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
-There are 162 images.
+\subsection{Dataset 3D-RPE Week 1}
 
-Time is the compute time for inference + accuracy (= the all workflow).
+%Masks used are here
+%https://wipp-dev.nist.gov/images-collection/671abb516103440e64a77397 and images
+%used are here
+%/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
+%There are 162 images.
+
+We make a comparative table where we compute the results for different Ground
+Truth (GT). The table can be read as: the value in column X and row Y, you have
+the accuracy of the model X based on the ground truth of Y. In this part the
+dataset is always 3D-RPE Week 1 which we will simply call W1.
+
+Tables are just half filled because the value in column X and row Y is the
+same as the value in column Y and row X.
 
 \begin{table}[H]
+\small
 \centering
 \caption{\label{tab:base3dRPEdatamask}%
-  Compute time per image (s) and accuracy (\%) with 3D-RPE data week 1 masks as ground truth
+  Accuracy (\%) with different Ground Truth (GT)
 }
-\begin{tabular}{lll}
+\begin{tabular}{llllll}
   \toprule
-  ID & Time & Accuracy \\
+  GT & Model U & Model H & Model B & Model C & Model S \\
   \midrule
-  W1 & \TODO\ &  \\
-  H1 & 7.04 & $\SI{40.62}{\percent} \pm \SI{34.99}{\percent}$ \\
-  H2 & 5.79 & $\SI{25.05}{\percent} \pm \SI{22.02}{\percent}$ \\
-  H3 & 6.76 & $\SI{38.19}{\percent} \pm \SI{35.67}{\percent}$ \\
-  B1 & \TODO\ & \TODO\ \\
-  B2 & \TODO\ & \TODO\ \\
-  C1 & \TODO\ & \TODO\ \\
-  C2 & \TODO\ & \TODO\ \\
-  S1 & 2.12 & $\SI{38.16}{\percent} \pm \SI{35.02}{\percent}$ \\
-  S2 & \TODO\ &  \\
+  W1 &  & \makecell{$\SI{25.05}{\percent}$ \\ $\pm \SI{22.02}{\percent}$} &  &  & \makecell{$\SI{38.16}{\percent}$ \\ $\pm \SI{35.02}{\percent}$} \\
+  U & x &  &  &  &  \\
+  H & x & x &  &  & \makecell{$\SI{82.51}{\percent}$ \\ $\pm \SI{18.29}{\percent}$} \\
+  B & x & x & x &  &  \\
+  C & x & x & x & x &  \\
+  S & x & x & x & x & x \\
   \bottomrule
 \end{tabular}
 \end{table}
 
-On the next tables, compute times per image are the same so I just remove
-it. The only difference is the ground truth data chosen.
+\subsection{Dataset 3D-RPE Week 3}
+
+%Masks used are here \TODO\ and images used are here \TODO\ .
+%There are 162 images.
+
+In this part the dataset is always 3D-RPE Week 3 which we will simply call W3.
 
 \begin{table}[H]
+\small
 \centering
-\caption{\label{tab:baseW1}%
-  Accuracy (\%) with H1 results as ground truth
+\caption{\label{tab:base3dRPEdatamask}%
+  Accuracy (\%) with different Ground Truth (GT)
 }
-\begin{tabular}{ll}
+\begin{tabular}{llllll}
   \toprule
-  ID & Accuracy \\
+  GT & U & H & B & C & S \\
   \midrule
-  W1 & \TODO\ \\
-  H1 & $\SI{100.0}{\percent} \pm \SI{0.0}{\percent}$ \\
-  H2 & $\SI{78.60}{\percent} \pm \SI{17.41}{\percent}$ \\
-  H3 & $\SI{93.70}{\percent} \pm \SI{13.32}{\percent}$ \\
-  B1 & \TODO\ \\
-  B2 & \TODO\ \\
-  C1 & \TODO\ \\
-  C2 & \TODO\ \\
-  S1 & $\SI{93.37}{\percent} \pm \SI{12.52}{\percent}$ \\
-  S2 & \TODO\ \\
-  \bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Dataset 3D-RPE data week 3}
-
-Masks used are here \TODO\ and images used are here \TODO\ . There are 162 images.
-
-\begin{table}[H]
-\centering
-\caption{\label{tab:base3dRPEdatamask-2}%
-  Compute time per image (s) and accuracy (\%) with 3D-RPE data week 3 masks as ground truth
-}
-\begin{tabular}{lll}
-  \toprule
-  ID & Time & Accuracy \\
-  \midrule
-  W1 & \TODO\ & \TODO\ \\
-  H1 & 2.82 & $\SI{70.93}{\percent} \pm \SI{27.97}{\percent}$ \\
-  H2 & 2.24 & $\SI{91.87}{\percent} \pm \SI{7.11}{\percent}$ \\
-  H3 & 2.56 & $\SI{73.15}{\percent} \pm \SI{27.31}{\percent}$ \\
-  B1 & \TODO\ & \TODO\ \\
-  B2 & \TODO\ & \TODO\ \\
-  C1 & \TODO\ & \TODO\ \\
-  C2 & \TODO\ & \TODO\ \\
-  S1 & 2.35 & $\SI{77.69}{\percent} \pm \SI{26.12}{\percent}$ \\
-  S2 & 1.93 & $\SI{55.07}{\percent} \pm \SI{26.46}{\percent}$ \\
+  W3 & \TODO\ & \makecell{$\SI{91.87}{\percent}$ \\ $\pm \SI{7.11}{\percent}$} & \TODO\ & \TODO\ & \makecell{$\SI{77.69}{\percent}$ \\ $\pm \SI{26.12}{\percent}$} \\
+  U & x & \TODO\ & \TODO\ & \TODO\ & \TODO\ \\
+  H & x & x & \TODO\ & \TODO\ & \makecell{$\SI{89.42}{\percent}$ \\ $\pm \SI{15.18}{\percent}$} \\
+  B & x & x & x & \TODO\ & \TODO\ \\
+  C & x & x & x & x & \TODO\ \\
+  S & x & x & x & x &  x \\
   \bottomrule
 \end{tabular}
 \end{table}
 
 
+%\TODO\
 
-ajm32@pn125927:/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/NEI\_RPE\_GoogleMap/Final\_stacks/TOM20/P1-W3-TOM
+%ajm32@pn125927:/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/NEI\_RPE\_GoogleMap/Final\_stacks/TOM20/P1-W3-TOM
 
-\TODO\
-
-
-
-
-\subsection{Local compute with RPEimplants data}
-
-Data used are from this link https://isg.nist.gov/deepzoomweb/data/RPEimplants.
-They contains images of 2D Measurement of Retinal Pigment Epithelium Function
-Using Quantitative Bright-Field Microscopy. There are 1032 images but for this
-results we compute on only 210 images. The local computer specifications are one
-GPU Quadro RTX 4000 with CUDA version 12.7 and Memory 8192 MiB.
-
-\begin{table}[H]
-\centering
-\caption{\label{tab:baseMask}%
-  Compute time per image (s) and accuracy (\%) with given masks as ground truth
-}
-\begin{tabular}{lll}
-  \toprule
-  ID & Time & Accuracy \\
-  \midrule
-  H1 & 4.16 & $\SI{85.87}{\percent} \pm \SI{3.98}{\percent}$ \\
-  H2 & 2.81 & $\SI{79.78}{\percent} \pm \SI{5.31}{\percent}$ \\
-  H3 & 3.57 & $\SI{83.08}{\percent} \pm \SI{3.34}{\percent}$ \\
-  B1 & 0.31 & $\SI{89.30}{\percent} \pm \SI{0.84}{\percent}$ \\
-  B2 & 0.38 & $\SI{10.44}{\percent} \pm \SI{3.20}{\percent}$ \\
-  \bottomrule
-\end{tabular}
-\end{table}
+%\TODO\
 
 \subsection{Notes}
 
