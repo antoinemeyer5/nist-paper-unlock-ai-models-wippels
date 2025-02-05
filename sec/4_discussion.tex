@@ -59,30 +59,7 @@ external tools. At the end we proposed an AI model card with 14 fields. For our
 needs, this works well, and we manage to retrieve all this information
 automatically throughout the workflow.
 
-\begin{figure}[H]
-\centering
-\begin{minted}[framesep=2mm,baselinestretch=1.2,fontsize=\footnotesize,linenos]{java}
-public class AiModelCard {
-    private String              version;
-    private String              name;
-    private Date                date;
-    private String              framework;
-    private Map<String, String> trainingData;
-    private Map<String, String> trainingParameters;
-    private String              author;
-    private String              description;
-    private String              citation;
-    private String[]            operationType;
-    private String              architecture;
-    private Map<String, Float>  training;
-    private Map<String, Float>  testing;
-    private String              license;
-}
-\end{minted}
-\caption{AI Model Card proposal in WIPP}
-\end{figure}
-
-This proposal is not perfect and needs refinering. The creation of a standard
+Our proposal is not perfect and needs refinering. The creation of a standard
 would be a great opportunity for all the AI actors to think about what they
 need.
 
