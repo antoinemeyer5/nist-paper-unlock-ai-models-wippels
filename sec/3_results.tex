@@ -72,9 +72,6 @@ Truth (GT). The table can be read as: the value in column X and row Y, you have
 the accuracy of the model X based on the ground truth of Y. In this part the
 dataset is always 3D-RPE Week 1 which we will simply call W1.
 
-Tables are just half filled because the value in column X and row Y is the
-same as the value in column Y and row X.
-
 \begin{table}[H]
 \small
 \centering
@@ -85,11 +82,11 @@ same as the value in column Y and row X.
   \toprule
   GT & Model U & Model H & B & C & S \\
   \midrule
-  W1 &  & \makecell{$\SI{25.05}{\percent}$ \\ $\pm \SI{22.02}{\percent}$} &  &  & \makecell{$\SI{38.16}{\percent}$ \\ $\pm \SI{35.02}{\percent}$} \\
+  W1 &  & \makecell{$\SI{25.05}{\percent}$ \\ $\pm \SI{22.02}{\percent}$} &  & \makecell{$\SI{50.78}{\percent}$ \\ $\pm \SI{32.72}{\percent}$}  & \makecell{$\SI{38.16}{\percent}$ \\ $\pm \SI{35.02}{\percent}$} \\
   U & x &  &  &  &  \\
-  H & x & x &  &  & \makecell{$\SI{82.51}{\percent}$ \\ $\pm \SI{18.29}{\percent}$} \\
+  H & x & x &  & \makecell{$\SI{41.98}{\percent}$ \\ $\pm \SI{19.65}{\percent}$} & \makecell{$\SI{82.51}{\percent}$ \\ $\pm \SI{18.29}{\percent}$} \\
   B & x & x & x &  &  \\
-  C & x & x & x & x &  \\
+  C & x & x & x & x & \makecell{$\SI{54.47}{\percent}$ \\ $\pm \SI{31.76}{\percent}$} \\
   S & x & x & x & x & x \\
   \bottomrule
 \end{tabular}
