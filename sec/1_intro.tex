@@ -1,36 +1,31 @@
 \section{Introduction}
 \label{sec:intro}
 
-With the relentless development of Artificial Intelligence (AI), new
+With the relentless development of \Gls{AI}, new
 architectures and new ways of analyzing texts and images are leading to many new
 models. This enthusiasm enables us to meet a wide range of needs but analyzing
-all these tools and choosing the right AI model to best solve your specific
+all these tools and choosing the right \Gls{AiModel} to best solve your specific
 problem is becoming less and less straightforward.
 
-\Gls{latex}
-
 Building a model from scratch for a specific application is time-consuming and
-tedious. Numerous public repositories of AI models exist, avoiding this
-preliminary work and allowing you to concentrate on use (inference) and/or
-adjustments (finetuning). It is therefore vital to be able to select the most
-accurate pre-trained model from those available, if possible, as automatically
+tedious. Numerous public repositories of \Gls{AiModel}s exist, avoiding this
+preliminary work and allowing you to concentrate on use (\Gls{AiInference}) and/or
+adjustments (\Gls{AiFineTuning}). It is therefore vital to be able to select the most
+accurate \Gls{PreTrainedModel} from those available, if possible, as automatically
 as possible.
 
-\cite{Authors14}, \cite{Authors14b}
+This motivation of reusing \Gls{PreTrainedModel}s from public \Gls{AiRepositories} poses
+three major challenges: (1) there is no standard \Gls{API} to access public
+\Gls{AiRepositories} with trained \Gls{AiModel}s, (2) there is insufficient metadata about
+trained \Gls{AiModel}s in public \Gls{AiRepositories} to match them to applications and to
+run them, and (3) there is no way of automatically assessing the accuracy of
+\Gls{AiModel}s.
 
-
-This motivation of reusing pre-trained models from public repositories poses
-three major challenges: (1) there is no standard API to access public
-repositories with trained AI models, (2) there is insufficient metadata about
-trained AI models in public repositories to match them to applications and to
-run them, and (3) there is no way of automatically assessing the accuracy of AI
-models.
-
-The first challenge is partly facilitated by the Application Programming
-Interface (API) offered by certain platforms, such as Transformers for Hugging
-Face. However, this is not the case for all AI model repositories and Web Image
-Processing Pipeline (WIPP) has yet to implement these APIs. The second challenge
-also has a start of a solution in the shape of the Model Card concept. However,
+The first challenge is partly facilitated by the \Gls{API} offered by certain
+platforms, such as Transformers \cite{Transformers_HuggingFace} for Hugging
+Face. However, this is not the case for all \Gls{AiModel} repositories and
+\Gls{WIPP} has yet to implement these \Gls{API}s. The second challenge
+also has a start of a solution in the shape of the \Gls{AiModelCard} concept. However,
 information is often scanty if not completely absent and is not automated.
 Finally, the third challenge requires special development to enable calculation
-of one way to evaluate models results accuracy as the Dice-Sørensen coefficient.
+of one way to evaluate models results accuracy as the \Gls{DiceIndex}.
