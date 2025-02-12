@@ -1,12 +1,12 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Public repositories}
+\subsection{Public \Gls{AiRepositories}}
 
 There is no standard for the documentation and no standard for the usage.
-Different technologies, with different repositories, with different goals make
+Different technologies, with different \Gls{AiRepositories}, with different goals make
 everything complicated. For this reason it could be great to develop a standard
-way to access AI models. This will allow to use more models from more different
+way to access \Gls{AiModel}s. This will allow to use more models from more different
 repositories to give access to more people. For this paper we have tried to use
 some repositories like below.
 
@@ -28,16 +28,21 @@ some repositories like below.
     \end{tabular}
 \end{table}
 
-The lack of documentation, of API or of models available made it impossible to
-use these repositories in WIPP. We hope to be able to integrate them into our
+The lack of documentation, of \Gls{API}s or of models available made it impossible to
+use these repositories in \Gls{WIPP}. We hope to be able to integrate them into our
 tool in the future.
 
 \subsection{Documentation}
 
-Documentation is also very important. Creating standard for AI model cards could
-be great for the community. This will help users and people who wants to use AI
-models but which are not specialties. In WIPP we have made decision by
-synthesizing the main AI Model Cards already on the market.
+Documentation is also very important. Creating standard for \Gls{AiModelCard}s could
+be great for the community. This will help users and people who wants to use
+\Gls{AiModel}s but which are not specialties. In \Gls{WIPP} we have made decision by
+synthesizing the main \Gls{AiModelCard}s already on the market.
+\cite{MC_Google}
+\cite{MC_Paper}
+\cite{MC_HuggingFace}
+\cite{MC_BioImageIo}
+\cite{MC_Tensorflow}
 
 \def\firstellip{(1.6, 0) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
 \def\secondellip{(0.3, 1cm) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
@@ -82,7 +87,7 @@ synthesizing the main AI Model Cards already on the market.
 \end{figure}
 
 This give us 8 fields that we want to keep to be as compatible as possible with
-external tools. At the end we proposed an AI model card with 14 fields including:
+external tools. At the end we proposed an \Gls{AiModelCard} with 14 fields including:
 
 \begin{itemize}
     \item String: version
@@ -99,39 +104,16 @@ external tools. At the end we proposed an AI model card with 14 fields including
 For our needs, this works well, and we manage to retrieve all this information
 automatically throughout the workflow.
 
-%\begin{figure}[H]
-%\centering
-%\begin{minted}[framesep=2mm,baselinestretch=1.2,fontsize=\footnotesize,linenos]{java}
-%public class AiModelCard {
-%    private String              version;
-%    private String              name;
-%    private Date                date;
-%    private String              framework;
-%    private Map<String, String> trainingData;
-%    private Map<String, String> trainingParameters;
-%    private String              author;
-%    private String              description;
-%    private String              citation;
-%    private String[]            operationType;
-%    private String              architecture;
-%    private Map<String, Float>  training;
-%    private Map<String, Float>  testing;
-%    private String              license;
-%}
-%\end{minted}
-%\caption{AI Model Card proposal in WIPP}
-%\end{figure}
-
 This proposal is not perfect and needs refinering. The creation of a standard
-would be a great opportunity for all the AI actors to think about what they
+would be a great opportunity for all the \Gls{AI} actors to think about what they
 need.
 
 \subsection{Accuracy}
 
-There are public models that work really well on your data. Using them is
+There are public \Gls{AiModel}s that work really well on your data. Using them is
 important because they advance science and save energy, money and time.
-Nevertheless, it's important to use good groung truth data to compare what's
-comparable. We use the Dice index to compare.
+Nevertheless, it's important to use good \Gls{GroundTruthData} to compare what's
+comparable. We use the \Gls{DiceIndex} to compare.
 
 \begin{figure}[H]
 \centering
@@ -150,12 +132,12 @@ comparable. We use the Dice index to compare.
 \caption{GT in red and PREDIC in blue} \label{fig:dice}
 \end{figure}
 
-In our tables we only needed to calculate half of the table. As the Dice
-coefficient formula is:
+In our tables we only needed to calculate half of the table. As the
+\Gls{DiceIndex} formula is:
 
 \[ Dice = \frac{2*TP}{2*TP + FP + FN} \]
 
-The change in/inversion of Ground Truth and Prediction
+The change in/inversion of \Gls{GroundTruthData} and Prediction
 only affects FP (False Positive) and FN (False Negative), which does not change
 the final result.
 

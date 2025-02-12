@@ -1,17 +1,17 @@
 \section{Results}
 \label{sec:results}
 
-Access new repositories give access to a lot of new models usable in Web Image
-Processing Pipeline (WIPP). It also saves hours of computational time and
-resources, as well as improves reusability of pre-trained AI models.
+Access new \Gls{AiRepositories} give access to a lot of new \Gls{AiModel}s
+usable in \Gls{WIPP}. It also saves hours of computational time and
+resources, as well as improves reusability of \Gls{PreTrainedModel}s.
 
-In the context of Image Analysis in WIPP, we are looking to use segmentation
-mask models.
+In the context of \Gls{ImageAnalysis} in \Gls{WIPP}, we are looking to
+use \Gls{SegmentationMaskModel}s.
 
 \begin{table}[H]
 \centering
 \caption{\label{tab:number_of_newly_available_models}%
-  Number of newly available image segmentation mask models thanks to Inference Plugin
+  Number of newly available image \Gls{SegmentationMaskModel}s thanks to Inference Plugin
 }
 \begin{tabular}{lc}
   \toprule
@@ -27,7 +27,7 @@ mask models.
 \end{table}
 
 The level of documentation varies greatly from model to model. We have set up an
-automatic documentation system for models trained within WIPP.
+automatic documentation system for models trained within \Gls{WIPP}.
 
 Finally to avoid lower confidence in external models, we have developed a way of
 evaluating the results and therefore the relevance of the models tested, in
@@ -50,7 +50,7 @@ We have selected 5 models, one from each previous repositories.
 \end{tabular}
 \end{table}
 
-We compute everything in WIPP. The WIPP server specifications are:
+We compute everything in \Gls{WIPP}. The \Gls{WIPP} server specifications are:
 \begin{itemize}
   \item CPU: AMD Ryzen 9 3950X 16-Core Processor with 16 cores and 2 threads
   \item GPU: NVIDIA GeForce RTX 3090
@@ -58,6 +58,8 @@ We compute everything in WIPP. The WIPP server specifications are:
 \end{itemize}
 
 We compute results on two different datasets: 3D-RPE Week 1 and 3D-RPE Week 3.
+Because it was 3D dataset and we apply 2D \Gls{AiModel}s, we do some pre-process and
+results could be less accurate as you can expected.
 
 \subsection{Dataset 3D-RPE Week 1}
 
@@ -67,8 +69,9 @@ We compute results on two different datasets: 3D-RPE Week 1 and 3D-RPE Week 3.
 %/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/sample\_data\_2024-10-24.
 %There are 162 images.
 
-We make a comparative table where we compute the results for different Ground
-Truth (GT). The table can be read as: the value in column X and row Y, you have
+We make a comparative table where we compute the results for different
+\Gls{GroundTruthData}. The table can be read as: the value in column X and
+row Y, you have
 the accuracy of the model X based on the ground truth of Y. In this part the
 dataset is always 3D-RPE Week 1 which we will simply call W1.
 
@@ -80,14 +83,14 @@ dataset is always 3D-RPE Week 1 which we will simply call W1.
 }
 \begin{tabular}{lccccc}
   \toprule
-  GT & Model U                                                         & Model H                                                         & B & C                                                               & S \\
+  GT & Model U                                                         & Model H                                                         & B                                                     & C                                                               & S \\
   \midrule
-  W1 & \makecell{$\SI{75.31}{\percent}$ \\ $\pm \SI{28.84}{\percent}$} & \makecell{$\SI{25.05}{\percent}$ \\ $\pm \SI{22.02}{\percent}$} &   & \makecell{$\SI{50.78}{\percent}$ \\ $\pm \SI{32.72}{\percent}$} & \makecell{$\SI{38.16}{\percent}$ \\ $\pm \SI{35.02}{\percent}$} \\
-  U & x                                                                & \makecell{$\SI{25.57}{\percent}$ \\ $\pm \SI{23.87}{\percent}$} &   & \makecell{$\SI{49.61}{\percent}$ \\ $\pm \SI{36.47}{\percent}$} & \makecell{$\SI{38.73}{\percent}$ \\ $\pm \SI{37.04}{\percent}$} \\
-  H & x                                                                & x                                                               &   & \makecell{$\SI{41.98}{\percent}$ \\ $\pm \SI{19.65}{\percent}$} & \makecell{$\SI{82.51}{\percent}$ \\ $\pm \SI{18.29}{\percent}$} \\
-  B & x                                                                & x                                                               & x &                                                                 &  \\
-  C & x                                                                & x                                                               & x & x                                                               & \makecell{$\SI{54.47}{\percent}$ \\ $\pm \SI{31.76}{\percent}$} \\
-  S & x                                                                & x                                                               & x & x                                                               & x \\
+  W1 & \makecell{$\SI{75.31}{\percent}$ \\ $\pm \SI{28.84}{\percent}$} & \makecell{$\SI{25.05}{\percent}$ \\ $\pm \SI{22.02}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{50.78}{\percent}$ \\ $\pm \SI{32.72}{\percent}$} & \makecell{$\SI{38.16}{\percent}$ \\ $\pm \SI{35.02}{\percent}$} \\
+  U & x                                                                & \makecell{$\SI{25.57}{\percent}$ \\ $\pm \SI{23.87}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{49.61}{\percent}$ \\ $\pm \SI{36.47}{\percent}$} & \makecell{$\SI{38.73}{\percent}$ \\ $\pm \SI{37.04}{\percent}$} \\
+  H & x                                                                & x                                                               & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{41.98}{\percent}$ \\ $\pm \SI{19.65}{\percent}$} & \makecell{$\SI{82.51}{\percent}$ \\ $\pm \SI{18.29}{\percent}$} \\
+  B & x                                                                & x                                                               & x                                                     & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$}           & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} \\
+  C & x                                                                & x                                                               & x                                                     & x                                                               & \makecell{$\SI{54.47}{\percent}$ \\ $\pm \SI{31.76}{\percent}$} \\
+  S & x                                                                & x                                                               & x                                                     & x                                                               & x \\
   \bottomrule
 \end{tabular}
 \end{table}
@@ -107,28 +110,25 @@ In this part the dataset is always 3D-RPE Week 3 which we will simply call W3.
 }
 \begin{tabular}{lccccc}
   \toprule
-  GT & Model U & Model H & B & C & S \\
+  GT & Model U                                                         & Model H                                                         & B                                                     & C                                                               & S \\
   \midrule
-  W3 & \TODO\ to recompute car les masks de W3 vont changer !!!! & \makecell{$\SI{91.87}{\percent}$ \\ $\pm \SI{7.11}{\percent}$} &  & \makecell{$\SI{27.46}{\percent}$ \\ $\pm \SI{9.17}{\percent}$} & \makecell{$\SI{77.69}{\percent}$ \\ $\pm \SI{26.12}{\percent}$} \\
-  U & x &  &  &  &  \\
-  H & x & x &  & \makecell{$\SI{42.42}{\percent}$ \\ $\pm \SI{19.40}{\percent}$}  & \makecell{$\SI{89.42}{\percent}$ \\ $\pm \SI{15.18}{\percent}$} \\
-  B & x & x & x &  &  \\
-  C & x & x & x & x & \makecell{$\SI{59.18}{\percent}$ \\ $\pm \SI{24.06}{\percent}$} \\
-  S & x & x & x & x &  x \\
+  W3 & \makecell{$\SI{83.97}{\percent}$ \\ $\pm \SI{14.95}{\percent}$} & \makecell{$\SI{22.57}{\percent}$ \\ $\pm \SI{18.01}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{49.53}{\percent}$ \\ $\pm \SI{25.06}{\percent}$} & \makecell{$\SI{30.18}{\percent}$ \\ $\pm \SI{27.09}{\percent}$} \\
+  U & x                                                                & \makecell{$\SI{23.91}{\percent}$ \\ $\pm \SI{18.76}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{51.75}{\percent}$ \\ $\pm \SI{25.33}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} \\
+  H & x                                                                & x                                                     & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} \\
+  B & x                                                                & x                                                     & x                                                     & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} \\
+  C & x                                                                & x                                                     & x                                                     & x                                                     & \makecell{$\SI{}{\percent}$ \\ $\pm \SI{}{\percent}$} \\
+  S & x                                                                & x                                                     & x                                                     & x                                                     & x \\
   \bottomrule
 \end{tabular}
 \end{table}
 
 
-%\TODO\
-
 %ajm32@pn125927:/mnt/isgnas/project/csmet/bio/Proj-028-RPE-Measurements/NEI\_RPE\_GoogleMap/Final\_stacks/TOM20/P1-W3-TOM
 
-%\TODO\
 
 \subsection{Notes}
 
 Even if the results may not be perfect, this method allows you to quickly try
 out a new model at reduced cost. It is also easy to change dataset. We can then
 take a promising model and improve it by finetuning it. We hope to improve the
-speed of data analysis within WIPP and enable better overall results.
+speed of data analysis within \Gls{WIPP} and enable better overall results.
