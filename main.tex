@@ -20,6 +20,16 @@
 \definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
 \usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
 
+% 
+\usepackage{glossaries}
+\makeglossaries
+\newglossaryentry{latex}
+{
+    name=latex,
+    description={Is a markup language specially suited 
+    for scientific documents}
+}
+
 %%%%%%%%% PAPER ID  - PLEASE UPDATE
 \def\paperID{*****} % *** Enter the Paper ID here
 \def\confName{CVPR}
@@ -50,8 +60,6 @@ Peter Bajcsy
 \begin{document}
 \maketitle
 
-\cite{Authors14}, \cite{Authors14b}
-
 \input{sec/0_abstract}
 \input{sec/1_intro}
 \input{sec/2_methods}
@@ -62,6 +70,7 @@ Peter Bajcsy
     \bibliographystyle{ieeenat_fullname}
     \bibliography{main}
 }
+\printglossaries
 
 % WARNING: do not forget to delete the supplementary pages from your submission
 % \input{sec/X_suppl}

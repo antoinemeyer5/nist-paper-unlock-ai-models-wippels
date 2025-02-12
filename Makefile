@@ -12,5 +12,6 @@ report:
 	mkdir -p $(OUTPUT_DIR)
 	pdflatex -pdf -jobname=$(OUTPUT_DIR)/$(DOCUMENT_NAME) -shell-escape main.tex
 	makeglossaries $(OUTPUT_DIR)/$(DOCUMENT_NAME)
-	biber $(OUTPUT_DIR)/$(DOCUMENT_NAME)
+	bibtex $(OUTPUT_DIR)/$(DOCUMENT_NAME)
+	pdflatex -pdf -jobname=$(OUTPUT_DIR)/$(DOCUMENT_NAME) -shell-escape main.tex
 	pdflatex -pdf -jobname=$(OUTPUT_DIR)/$(DOCUMENT_NAME) -shell-escape main.tex
