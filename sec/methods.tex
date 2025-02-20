@@ -1,11 +1,28 @@
 \section{Methods}
 \label{sec:methods}
 
-\Gls{WIPP} is a scientific workflow engine,
-illustrated as shown in figure 1. This tool enables all kinds of image
-visualization and analysis. Image analysis are possible thanks to the workflow
-concept who enables a sequence of plugins, a piece of code put in the form of a
-container, allowing all kinds of analysis or modification.
+\subsection{Related work}
+
+There are already existing APIs or tools to download, inference and train AI
+models:
+\begin{itemize}
+  \item Transformers (Hugging Face API) \cite{wolf-etal-2020-transformers}
+  \item Cellpose API \cite{Stringer2020.02.02.931238}
+  \item BioImage.IO Core (Python libraries)
+  \item SAM2 repository \cite{ravi2024sam2}
+\end{itemize}
+
+\subsection{Our approach}
+
+We use existing APIs of AI repositories and use them in the context of WIPP. We
+use AI model card to document AI model trained in WIPP.
+
+\subsection{Web Image Processing Pipelines}
+
+WIPP is a scientific workflow engine, illustrated as shown in figure 1.
+The purpose of this tool is to make measurements based on terabyte-sized images.
+It is an algorithmic plugin platform. Its goal is to lower the bar to execute
+image analyses.
 
 \begin{figure}[H]
   \centering
@@ -13,6 +30,9 @@ container, allowing all kinds of analysis or modification.
   \caption{\Gls{WIPP}}
   \label{fig:1wipp}
 \end{figure}
+
+WIPP worflows are sequence of plugins. WIPP plugins are piece of code (code put
+in the form of a container) taking inputs and outputs and executing code.
 
 Thanks to a plugin you can, for example, load an \Gls{AiModel} hosted in
 \Gls{WIPP}, specify an
@@ -22,12 +42,33 @@ The result will be a new collection of images modified by the \Gls{AiModel}, for
 example
 with a label after inference of a \Gls{ClassificationModel}.
 
-\subsection{Access public \Gls{AiRepositories} via \Gls{WIPP}}
+\subsection{Access public \Gls{AiRepositories}}
+
+There are many public AI models on lots of public AI repositories.
+
+\begin{table}[H]
+  \centering
+  \caption{Number of models per repository}
+  \begin{tabular}{lcc}
+    \toprule
+    AI repositories & IC models & S + MG models \\
+    \midrule
+    Hugging Face    & 15,593                      & 1,160 + 176 \\
+    BioImage.IO     & 1                           & 4 + 32 \\
+    Cellpose        & $\times$                    & 21 \\
+    SAM2            & $\times$                    & 8 \\
+    PyTorch Hub     & 20                          & 5 \\
+    \bottomrule
+  \end{tabular}
+  \caption*{Image Classif. (IC), Segmentation (S), Mask Generation (MG)}
+\end{table}
+
+Our goal is to access external AI models in WIPP.
+
 
 We have developed new inference plugins, see figure 2, to enable access to
 \Gls{AiModel}s available on different public \Gls{AiRepositories} such as
-Hugging Face \cite{HuggingFace}, BioImage.IO \cite{BioImageIo},
-Cellpose \cite{Cellpose}, and more.
+Hugging Face, BioImage.IO, Cellpose, and more.
 
 \begin{figure}[H]
   \centering
@@ -37,9 +78,7 @@ Cellpose \cite{Cellpose}, and more.
 \end{figure}
 
 This was achieved by developing general-purpose code using the \Gls{API} of
-the various platforms: Transformers \cite{Transformers_HuggingFace} for Hugging
-Face \cite{HuggingFace}, the BioImage.IO API \cite{BioImageIoAPI} or the
-Cellpose \Gls{CLI} \cite{CellposeCLI}. This
+the various platforms. This
 enabled us to increase the number of \Gls{AiModel}s usable
 in \Gls{WIPP} thanks to containerized software.
 
@@ -63,7 +102,15 @@ iterations, training time, and more.
 
 \subsection{Compute accuracy}
 
+Our goal is to mesure accuracy of external AI results and to select the most
+accurate/fastest one.
+
 We have developed a new plugin, see figure 4, to compute the \Gls{DiceIndex}.
+
+The formula is:
+
+\[ Dice = \frac{2*TP}{2*TP + FP + FN} \]
+
 It is a statistic used to gauge the similarity of two samples, in
 our case images.
 
