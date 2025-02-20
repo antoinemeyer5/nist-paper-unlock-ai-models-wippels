@@ -12,10 +12,44 @@ models:
   \item SAM2 repository \cite{ravi2024sam2}
 \end{itemize}
 
+The problem is there are no common APIs/CLIs/no standard.
+
+For example with 'download API', there are 4 differents code for these 4 repositories:
+
+\begin{listing}[H]
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+    # BioImage.IO
+    model = load_description(args.model)
+
+    # Hugging Face
+    pipe = pipeline(task="mask-generation",
+      model=args.model, points_per_batch=32,
+      device=device)
+
+    # SAM2
+    mask_generator = SAM2AutomaticMaskGenerator
+      .from_pretrained(args.model, device=device)
+  \end{minted}
+
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{bash}
+    # Cellpose
+    python -m cellpose --pretrained_model cyto3
+  \end{minted}
+\end{listing}
+
+There is the same issue with 'inference API', 'train API', etc.
+
 \subsection{Our approach}
 
 We use existing APIs of AI repositories and use them in the context of WIPP. We
 use AI model card to document AI model trained in WIPP.
+
+Our contributions are:
+\begin{itemize}
+  \item Analyze API of AI repositories
+  \item Implement them for containerized plugin that run in WIPP without learning the API
+  \item Trained/Retrained AI model will comes with proper AI model card
+\end{itemize}
 
 \subsection{Web Image Processing Pipelines}
 
