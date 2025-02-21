@@ -12,43 +12,50 @@ models:
   \item SAM2 repository \cite{ravi2024sam2}
 \end{itemize}
 
-The problem is there are no common APIs/CLIs/no standard.
+\subsection{No common APIs}
 
-For example with 'download API', there are 4 differents code for these 4 repositories:
+The problem is there are no common APIs/\Gls{CLI}s/no standard.
 
-\begin{listing}[H]
+For example with 'download API', there are four differents code for these four
+repositories:
+\begin{itemize}
+
+  \item BioImage.IO code
   \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
-    # BioImage.IO
-    model = load_description(args.model)
-
-    # Hugging Face
-    pipe = pipeline(task="mask-generation",
-      model=args.model, points_per_batch=32,
-      device=device)
-
-    # SAM2
-    mask_generator = SAM2AutomaticMaskGenerator
-      .from_pretrained(args.model, device=device)
+  model = load_description(args.model)
   \end{minted}
 
-  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{bash}
-    # Cellpose
-    python -m cellpose --pretrained_model cyto3
+  \item Hugging Face code
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+  pipe = pipeline(task="mask-generation",
+    model=args.model, points_per_batch=32,
+    device=device)
   \end{minted}
-\end{listing}
+
+  \item SAM2 code
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+  mask_generator = SAM2AutomaticMaskGenerator
+    .from_pretrained(args.model, device=device)
+  \end{minted}
+
+  \item Cellpose code
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{shell-session}
+  $ python -m cellpose --pretrained_model cyto3
+  \end{minted}
+\end{itemize}
 
 There is the same issue with 'inference API', 'train API', etc.
 
 \subsection{Our approach}
 
-We use existing APIs of AI repositories and use them in the context of WIPP. We
-use AI model card to document AI model trained in WIPP.
+We use existing APIs of AI repositories and use them in the context of
+\Gls{WIPP}. We use \Gls{AiModelCard} to document AI model trained in WIPP.
 
 Our contributions are:
 \begin{itemize}
   \item Analyze API of AI repositories
   \item Implement them for containerized plugin that run in WIPP without learning the API
-  \item Trained/Retrained AI model will comes with proper AI model card
+  \item Trained/retrained AI model will comes with proper AI model card
 \end{itemize}
 
 \subsection{Web Image Processing Pipelines}
@@ -61,22 +68,22 @@ image analyses.
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\linewidth]{png/methods/wipp.png}
-  \caption{\Gls{WIPP}}
+  \caption{WIPP}
   \label{fig:1wipp}
 \end{figure}
 
 WIPP worflows are sequence of plugins. WIPP plugins are piece of code (code put
 in the form of a container) taking inputs and outputs and executing code.
 
-Thanks to a plugin you can, for example, load an \Gls{AiModel} hosted in
-\Gls{WIPP}, specify an
-image collection and perform the \Gls{AiInference} of this \Gls{AiModel} on the
+Thanks to a plugin you can, for example, load an AI model hosted in
+WIPP, specify an
+image collection and perform the AI inference of this AI model on the
 selected images.
-The result will be a new collection of images modified by the \Gls{AiModel}, for
+The result will be a new collection of images modified by the AI model, for
 example
 with a label after inference of a \Gls{ClassificationModel}.
 
-\subsection{Access public \Gls{AiRepositories}}
+\subsection{Access public AI repositories}
 
 There are many public AI models on lots of public AI repositories.
 
@@ -101,7 +108,7 @@ Our goal is to access external AI models in WIPP.
 
 
 We have developed new inference plugins, see figure 2, to enable access to
-\Gls{AiModel}s available on different public \Gls{AiRepositories} such as
+AI models available on different public AI repositories such as
 Hugging Face, BioImage.IO, Cellpose, and more.
 
 \begin{figure}[H]
@@ -111,26 +118,26 @@ Hugging Face, BioImage.IO, Cellpose, and more.
   \label{fig:2inference}
 \end{figure}
 
-This was achieved by developing general-purpose code using the \Gls{API} of
+This was achieved by developing general-purpose code using the API of
 the various platforms. This
-enabled us to increase the number of \Gls{AiModel}s usable
-in \Gls{WIPP} thanks to containerized software.
+enabled us to increase the number of AI models usable
+in WIPP thanks to containerized software.
 
-\subsection{Document \Gls{AiModel}s}
+\subsection{Document AI models}
 
-We have introduced \Gls{AiModelCard} entries that are necessary for matching tasks
-with \Gls{AiModel}s. This information will also be needed as runtime parameters.
-Figure 3, training an \Gls{AI} in \Gls{WIPP} automatically generates its documentation
-(\Gls{AiModelCard}).
+We have introduced AI model card entries that are necessary for matching tasks
+with AI models. This information will also be needed as runtime parameters.
+Figure 3, training an AI in WIPP automatically generates its documentation
+(AI model card).
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\linewidth]{png/methods/ai_model_card.png}
-  \caption{\Gls{AiModelCard}}
+  \caption{AI model card}
   \label{fig:3aimodelcard}
 \end{figure}
 
-This was achieved by developing code to retrieve information about the \Gls{AiModel}
+This was achieved by developing code to retrieve information about the AI model
 throughout the pipeline: name, creation date, data used for training, number of
 iterations, training time, and more.
 
@@ -155,8 +162,8 @@ our case images.
   \label{fig:4accuracy}
 \end{figure}
 
-This was achieved by implementing the \Gls{DiceIndex}'s formula into a containerized
-software (plugin). This makes it now possible to sequence model \Gls{AiInference} (a
-model created within \Gls{WIPP} or a model from a repository) and evaluate the
+This was achieved by implementing the Dice index's formula into a containerized
+software (plugin). This makes it now possible to sequence model AI inference (a
+model created within WIPP or a model from a repository) and evaluate the
 accuracy of the result provided, by comparing it with
 \Gls{GroundTruthData}.
