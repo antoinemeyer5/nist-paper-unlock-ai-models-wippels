@@ -21,26 +21,31 @@ repositories:
 \begin{itemize}
 
   \item BioImage.IO code
-  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\small,linenos]{python}
   model = load_description(args.model)
   \end{minted}
 
   \item Hugging Face code
-  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\small,linenos]{python}
   pipe = pipeline(task="mask-generation",
-    model=args.model, points_per_batch=32,
-    device=device)
+                  model=args.model,
+                  points_per_batch=32,
+                  device=device)
   \end{minted}
 
   \item SAM2 code
-  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{python}
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\small,linenos]{python}
   mask_generator = SAM2AutomaticMaskGenerator
-    .from_pretrained(args.model, device=device)
+    .from_pretrained(args.model,
+                     device=device)
   \end{minted}
 
   \item Cellpose code
-  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\footnotesize,linenos]{shell-session}
-  $ python -m cellpose --pretrained_model cyto3
+  \begin{minted}[frame=lines,framesep=2mm,baselinestretch=0.8,fontsize=\small,linenos]{shell-session}
+  $ python -m cellpose\
+      --pretrained_model cyto3\
+      --dir {inputs}\
+      --savedir {output}
   \end{minted}
 \end{itemize}
 
