@@ -1,11 +1,10 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Public \Gls{AiRepositories}}
+\subsection{Public AI repositories}
 
 There is no standard for the documentation and no standard for the usage.
-Different technologies, with different \Gls{AiRepositories}, with different goals make
-everything complicated. For this reason it could be great to develop a standard
+It could be great to develop a standard
 way to access \Gls{AiModel}s. This will allow to use more models from more different
 repositories to give access to more people. For this paper we have tried to use
 some repositories like below.
@@ -28,21 +27,30 @@ some repositories like below.
     \end{tabular}
 \end{table}
 
-The lack of documentation, of \Gls{API}s or of models available made it impossible to
-use these repositories in \Gls{WIPP}. We hope to be able to integrate them into our
+The lack of documentation, of APIs or of models available made it impossible to
+use these repositories in WIPP. We hope to be able to integrate them into our
 tool in the future.
 
 \subsection{Documentation}
 
-Documentation is also very important. Creating standard for \Gls{AiModelCard}s could
-be great for the community. This will help users and people who wants to use
-\Gls{AiModel}s but which are not specialties. In \Gls{WIPP} we have made decision by
-synthesizing the main \Gls{AiModelCard}s already on the market.
-\cite{MC_Google}
-\cite{MC_Paper}
-\cite{MC_HuggingFace}
-\cite{MC_BioImageIo}
-\cite{MC_Tensorflow}
+Documentation is also very important. Creating standard for AI model cards
+could be great for the community.
+
+In \Gls{WIPP} we have made decision by synthesizing the main AI model cards
+already on the market:
+\begin{itemize}
+    \item Model Cards for Model Reporting, Google \cite{DBLP:journals/corr/abs-1810-03993}
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+
+
+% \cite{MC_Paper}
+% \cite{MC_HuggingFace}
+% \cite{MC_BioImageIo}
+% \cite{MC_Tensorflow}
 
 \def\firstellip{(1.6, 0) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
 \def\secondellip{(0.3, 1cm) ellipse [x radius=2.7cm, y radius=1.5cm, rotate=50]}
@@ -87,57 +95,45 @@ synthesizing the main \Gls{AiModelCard}s already on the market.
 \end{figure}
 
 This give us 8 fields that we want to keep to be as compatible as possible with
-external tools. At the end we proposed an \Gls{AiModelCard} with 14 fields including:
+external tools. At the end we proposed an \Gls{AiModelCard} with 14 fields.
 
-\begin{itemize}
-    \item String: version
-    \item String: name
-    \item Date: date
-    \item String: framework
-    \item Map$\langle$String, String$\rangle$: trainingData
-    \item Map$\langle$String, String$\rangle$: trainingParameters
-    \item String: author
-    \item String: description
-    \item and more ...
-\end{itemize}
+%\begin{itemize}
+%    \item String: version
+%    \item String: name
+%    \item Date: date
+%    \item String: framework
+%    \item Map$\langle$String, String$\rangle$: trainingData
+%    \item Map$\langle$String, String$\rangle$: trainingParameters
+%    \item String: author
+%    \item String: description
+%    \item and more ...
+%\end{itemize}
 
-For our needs, this works well, and we manage to retrieve all this information
-automatically throughout the workflow.
+%For our needs, this works well, and
+We manage to retrieve all this information automatically throughout the workflow.
 
-This proposal is not perfect and needs refinering. The creation of a standard
+%This proposal is not perfect and needs refinering.
+The creation of a standard
 would be a great opportunity for all the \Gls{AI} actors to think about what they
 need.
 
-\subsection{Accuracy}
 
-There are public \Gls{AiModel}s that work really well on your data. Using them is
-important because they advance science and save energy, money and time.
-Nevertheless, it's important to use good \Gls{GroundTruthData} to compare what's
-comparable. We use the \Gls{DiceIndex} to compare.
+%\begin{figure}[H]
+%\centering
+%\begin{tikzpicture}
+%
+%    \draw[draw=black] (-1.25,-1.25) rectangle ++(3.5, 3);
+%    \filldraw[fill=red, opacity=0.1](0, 0) circle (1);
+%    \filldraw[fill=blue, opacity=0.1](1, 0) circle (1);
+%
+%    \draw node [label={[xshift=0.5cm, yshift=-0.33cm] TP}] {};
+%    \draw node [label={[xshift=0.5cm, yshift=1cm] TN}] {};
+%    \draw node [label={[xshift=1.5cm, yshift=-0.33cm] FP}] {};
+%    \draw node [label={[xshift=-0.5cm, yshift=-0.33cm] FN}] {};
+%
+%\end{tikzpicture}
+%\caption{GT in red and PREDIC in blue} \label{fig:dice}
+%\end{figure}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
 
-    \draw[draw=black] (-1.25,-1.25) rectangle ++(3.5, 3);
-    \filldraw[fill=red, opacity=0.1](0, 0) circle (1);
-    \filldraw[fill=blue, opacity=0.1](1, 0) circle (1);
-
-    \draw node [label={[xshift=0.5cm, yshift=-0.33cm] TP}] {};
-    \draw node [label={[xshift=0.5cm, yshift=1cm] TN}] {};
-    \draw node [label={[xshift=1.5cm, yshift=-0.33cm] FP}] {};
-    \draw node [label={[xshift=-0.5cm, yshift=-0.33cm] FN}] {};
-
-\end{tikzpicture}
-\caption{GT in red and PREDIC in blue} \label{fig:dice}
-\end{figure}
-
-In our tables we only needed to calculate half of the table. As the
-\Gls{DiceIndex} formula is:
-
-\[ Dice = \frac{2*TP}{2*TP + FP + FN} \]
-
-The change in/inversion of \Gls{GroundTruthData} and Prediction
-only affects FP (False Positive) and FN (False Negative), which does not change
-the final result.
 
