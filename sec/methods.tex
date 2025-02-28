@@ -49,7 +49,17 @@ repositories:
   \end{minted}
 \end{itemize}
 
-There is the same issue with 'inference API', 'train API', etc.
+There is the same issue with 'inference API':
+
+
+TODO
+
+TODO, add appendix for ‘inference API’, ‘finetungin API’ same as download API
+
+TODO
+
+
+And 'train API', 'fine-tune API', etc.
 
 \subsection{Our approach}
 
@@ -111,7 +121,6 @@ There are many public AI models on lots of public AI repositories.
 
 Our goal is to access external AI models in WIPP.
 
-
 We have developed new inference plugins, see figure 2, to enable access to
 AI models available on different public AI repositories such as
 Hugging Face, BioImage.IO, Cellpose, and more.
@@ -127,6 +136,18 @@ This was achieved by developing general-purpose code using the API of
 the various platforms. This
 enabled us to increase the number of AI models usable
 in WIPP thanks to containerized software.
+
+TODO
+
+TODO: explain the tilling
+Model take specific images sizes.
+Some model do it internally.
+But some not.
+So we dot the tilling by hand.
+Talk about tilling in WIPP pinference plugin and BioImage plugin.
+Image to show and explain tilling and how it works
+
+TODO
 
 \subsection{Document AI models}
 
